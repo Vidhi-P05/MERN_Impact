@@ -4,36 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python DSA Interview Questions and Answers</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #34495e;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header, main, footer {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styles */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+        }
+        
+        hr {
+            border: none;
+            height: 3px;
+            background-color: #3498db;
+            margin: 20px 0;
+        }
+        
+        /* Section styles */
+        section {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        
+        /* Details/summary styles */
+        details {
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        summary {
+            padding: 15px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            font-weight: 600;
+            color: #e74c3c;
+            outline: none;
+            transition: background-color 0.2s;
+        }
+        
+        summary:hover {
+            background-color: #f0f0f0;
+        }
+        
+        details[open] summary {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        details > div {
+            padding: 20px;
+            background-color: #eaf2f8;
+        }
+        
+        /* Code styles */
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            color: #8e44ad;
+        }
+        
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            header, main, footer {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            pre {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
-<body bgcolor="#f5f5f5">
+<body>
     <header>
-        <h1 align="center"><font color="#2c3e50">Python DSA Interview Questions and Answers</font></h1>
-        <hr color="#3498db" size="3">
-        <p align="center"><font color="#7f8c8d" size="4">A comprehensive guide to commonly asked Python Data Structures and Algorithms questions</font></p>
+        <h1>Python DSA Interview Questions and Answers</h1>
+        <hr>
+        <p style="color: #7f8c8d; font-size: 1.2rem;">A comprehensive guide to commonly asked Python Data Structures and Algorithms questions</p>
     </header>
 
     <main>
         <article>
             <section>
-                <h2><font color="#2980b9">Introduction</font></h2>
-                <p><font color="#34495e">
+                <h2>Introduction</h2>
+                <p>
                     Preparing for a Python programming interview can be challenging, especially when it comes to Data Structures and Algorithms (DSA). 
                     This guide covers the most commonly asked Python DSA questions during technical interviews. 
                     Click on each question to reveal the detailed answer.
-                </font></p>
+                </p>
             </section>
 
             <section>
-                <h2><font color="#2980b9">Array and String Questions</font></h2>
+                <h2>Array and String Questions</h2>
                 
                 <details>
-                    <summary><font color="#e74c3c" size="4">How would you reverse a string in Python?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>How would you reverse a string in Python?</summary>
+                    <div>
+                        <p>
                             In Python, strings can be reversed using slicing, which is a very Pythonic approach:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def reverse_string(s):
     return s[::-1]
 
@@ -41,29 +162,29 @@ def reverse_string(s):
 original = "Hello, World!"
 reversed_string = reverse_string(original)
 print(reversed_string)  # Output: "!dlroW ,olleH"
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e">
+                        <p>
                             You can also reverse a string by converting it to a list, reversing the list, and joining it back:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def reverse_string_alt(s):
     char_list = list(s)
     char_list.reverse()
     return ''.join(char_list)
-                        </font></pre>
+                        </pre>
                     </div>
                 </details>
 
                 <details>
-                    <summary><font color="#e74c3c" size="4">How do you find all pairs in an array that sum to a specific value?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>How do you find all pairs in an array that sum to a specific value?</summary>
+                    <div>
+                        <p>
                             This is a classic two-sum problem. The most efficient approach uses a hash map (dictionary in Python):
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def find_pairs(arr, target_sum):
     pairs = []
     seen = set()
@@ -80,23 +201,23 @@ def find_pairs(arr, target_sum):
 arr = [1, 5, 3, 7, 9, 2, 6]
 target = 8
 print(find_pairs(arr, target))  # Output: [(1, 7), (5, 3), (2, 6)]
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e">
+                        <p>
                             Time Complexity: O(n) - We only need to traverse the array once.<br>
                             Space Complexity: O(n) - In the worst case, we store all elements in the hash set.
-                        </font></p>
+                        </p>
                     </div>
                 </details>
 
                 <details>
-                    <summary><font color="#e74c3c" size="4">Explain how to find the missing number in an array of 1 to N?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>Explain how to find the missing number in an array of 1 to N?</summary>
+                    <div>
+                        <p>
                             When we have an array containing numbers from 1 to N with exactly one number missing, we can find it using the sum formula:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def find_missing_number(arr, n):
     # Expected sum of numbers from 1 to n
     expected_sum = n * (n + 1) // 2
@@ -111,13 +232,13 @@ def find_missing_number(arr, n):
 arr = [1, 2, 4, 5, 6, 7, 8]
 n = 8  # Range is 1 to 8
 print(find_missing_number(arr, n))  # Output: 3
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e">
+                        <p>
                             An alternative approach using XOR operations (useful for avoiding integer overflow):
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def find_missing_number_xor(arr, n):
     result = 0
     
@@ -130,22 +251,22 @@ def find_missing_number_xor(arr, n):
         result ^= num
     
     return result
-                        </font></pre>
+                        </pre>
                     </div>
                 </details>
             </section>
 
             <section>
-                <h2><font color="#2980b9">Linked List Questions</font></h2>
+                <h2>Linked List Questions</h2>
                 
                 <details>
-                    <summary><font color="#e74c3c" size="4">How do you detect a cycle in a linked list?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>How do you detect a cycle in a linked list?</summary>
+                    <div>
+                        <p>
                             The most efficient way to detect a cycle in a linked list is using Floyd's Cycle-Finding Algorithm (also known as the "tortoise and hare" algorithm):
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -170,23 +291,23 @@ def has_cycle(head):
     
     # If we can reach the end, there's no cycle
     return False
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e">
+                        <p>
                             Time Complexity: O(n)<br>
                             Space Complexity: O(1) - We only use two pointers
-                        </font></p>
+                        </p>
                     </div>
                 </details>
 
                 <details>
-                    <summary><font color="#e74c3c" size="4">How would you find the middle element of a linked list in one pass?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>How would you find the middle element of a linked list in one pass?</summary>
+                    <div>
+                        <p>
                             To find the middle element of a linked list in a single pass, we can use the two-pointer technique:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def find_middle_node(head):
     if not head:
         return None
@@ -213,22 +334,22 @@ head.next.next.next.next = ListNode(5)
 
 middle = find_middle_node(head)
 print(middle.val)  # Output: 3
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e">
+                        <p>
                             For an even number of nodes (e.g., 1->2->3->4), this approach returns the second middle node (3).
-                        </font></p>
+                        </p>
                     </div>
                 </details>
 
                 <details>
-                    <summary><font color="#e74c3c" size="4">How do you reverse a linked list?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>How do you reverse a linked list?</summary>
+                    <div>
+                        <p>
                             Reversing a linked list is a classic problem that can be solved iteratively or recursively. Here's the iterative approach:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def reverse_linked_list(head):
     prev = None
     current = head
@@ -246,13 +367,13 @@ def reverse_linked_list(head):
     
     # The new head is the previous last node
     return prev
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e">
+                        <p>
                             Here's the recursive approach:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def reverse_linked_list_recursive(head):
     # Base case
     if not head or not head.next:
@@ -266,22 +387,22 @@ def reverse_linked_list_recursive(head):
     head.next = None
     
     return new_head
-                        </font></pre>
+                        </pre>
                     </div>
                 </details>
             </section>
 
             <section>
-                <h2><font color="#2980b9">Stack and Queue Questions</font></h2>
+                <h2>Stack and Queue Questions</h2>
                 
                 <details>
-                    <summary><font color="#e74c3c" size="4">How would you implement a stack using queues?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>How would you implement a stack using queues?</summary>
+                    <div>
+                        <p>
                             We can implement a stack using a single queue by making the push operation costly:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 from collections import deque
 
 class StackUsingQueue:
@@ -317,18 +438,18 @@ stack.push(3)
 print(stack.top())  # Output: 3
 print(stack.pop())  # Output: 3
 print(stack.top())  # Output: 2
-                        </font></pre>
+                        </pre>
                     </div>
                 </details>
 
                 <details>
-                    <summary><font color="#e74c3c" size="4">Explain how to implement a queue using stacks?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>Explain how to implement a queue using stacks?</summary>
+                    <div>
+                        <p>
                             We can implement a queue using two stacks. Here's how to do it with either the enqueue or dequeue operation being costly:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 class QueueUsingStacks:
     def __init__(self):
         self.stack1 = []  # For enqueue
@@ -375,18 +496,18 @@ queue.enqueue(3)
 print(queue.peek())   # Output: 1
 print(queue.dequeue())  # Output: 1
 print(queue.peek())   # Output: 2
-                        </font></pre>
+                        </pre>
                     </div>
                 </details>
 
                 <details>
-                    <summary><font color="#e74c3c" size="4">How do you validate a string of parentheses ((), [], {}) using a stack?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>How do you validate a string of parentheses ((), [], {}) using a stack?</summary>
+                    <div>
+                        <p>
                             We can use a stack to validate a string of different types of parentheses:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def is_valid_parentheses(s):
     stack = []
     mapping = {')': '(', '}': '{', ']': '['}
@@ -410,22 +531,22 @@ print(is_valid_parentheses("()[]{}"))   # True
 print(is_valid_parentheses("(]"))       # False
 print(is_valid_parentheses("([)]"))     # False
 print(is_valid_parentheses("{[]}"))     # True
-                        </font></pre>
+                        </pre>
                     </div>
                 </details>
             </section>
 
             <section>
-                <h2><font color="#2980b9">Tree and Graph Questions</font></h2>
+                <h2>Tree and Graph Questions</h2>
                 
                 <details>
-                    <summary><font color="#e74c3c" size="4">How do you implement a breadth-first search (BFS) in a binary tree?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>How do you implement a breadth-first search (BFS) in a binary tree?</summary>
+                    <div>
+                        <p>
                             BFS traverses a tree level by level. We can implement it using a queue:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 from collections import deque
 
 class TreeNode:
@@ -473,18 +594,18 @@ root.left.right = TreeNode(5)
 root.right.right = TreeNode(6)
 
 print(breadth_first_search(root))  # Output: [[1], [2, 3], [4, 5, 6]]
-                        </font></pre>
+                        </pre>
                     </div>
                 </details>
 
                 <details>
-                    <summary><font color="#e74c3c" size="4">How would you implement depth-first search (DFS) in a binary tree?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>How would you implement depth-first search (DFS) in a binary tree?</summary>
+                    <div>
+                        <p>
                             There are three types of DFS traversals for a binary tree: preorder (root, left, right), inorder (left, root, right), and postorder (left, right, root). Here's how to implement all three recursively:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def preorder_traversal(root):
     result = []
     
@@ -552,18 +673,18 @@ def postorder_traversal(root):
 print(preorder_traversal(root))   # Output: [1, 2, 4, 5, 3, 6]
 print(inorder_traversal(root))    # Output: [4, 2, 5, 1, 3, 6]
 print(postorder_traversal(root))  # Output: [4, 5, 2, 6, 3, 1]
-                        </font></pre>
+                        </pre>
                     </div>
                 </details>
 
                 <details>
-                    <summary><font color="#e74c3c" size="4">How do you determine if a binary tree is balanced?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>How do you determine if a binary tree is balanced?</summary>
+                    <div>
+                        <p>
                             A balanced binary tree is one where the height difference between the left and right subtrees of any node is not more than 1. We can implement a recursive solution:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def is_balanced(root):
     # Return (is_balanced, height)
     def check_balance(node):
@@ -616,33 +737,33 @@ unbalanced_root.left = TreeNode(2)
 unbalanced_root.left.left = TreeNode(3)
 
 print(is_balanced(unbalanced_root))  # Output: False
-                        </font></pre>
+                        </pre>
                     </div>
                 </details>
             </section>
 
             <section>
-                <h2><font color="#2980b9">Dynamic Programming Questions</font></h2>
+                <h2>Dynamic Programming Questions</h2>
                 
                 <details>
-                    <summary><font color="#e74c3c" size="4">Explain the Fibonacci sequence implementation using dynamic programming?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>Explain the Fibonacci sequence implementation using dynamic programming?</summary>
+                    <div>
+                        <p>
                             The Fibonacci sequence can be implemented using different approaches. Here are three ways to do it, showing the progression from naive recursion to dynamic programming:
-                        </font></p>
+                        </p>
                         
-                        <p><font color="#34495e"><b>1. Naive Recursive Approach (Inefficient):</b></font></p>
-                        <pre><font color="#8e44ad">
+                        <p><b>1. Naive Recursive Approach (Inefficient):</b></p>
+                        <pre>
 def fibonacci_recursive(n):
     if n <= 1:
         return n
     return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
 
 # This has exponential time complexity O(2^n)
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e"><b>2. Dynamic Programming - Memoization (Top-Down):</b></font></p>
-                        <pre><font color="#8e44ad">
+                        <p><b>2. Dynamic Programming - Memoization (Top-Down):</b></p>
+                        <pre>
 def fibonacci_memoization(n, memo={}):
     if n in memo:
         return memo[n]
@@ -653,10 +774,10 @@ def fibonacci_memoization(n, memo={}):
     return memo[n]
 
 # Time complexity: O(n), Space complexity: O(n)
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e"><b>3. Dynamic Programming - Tabulation (Bottom-Up):</b></font></p>
-                        <pre><font color="#8e44ad">
+                        <p><b>3. Dynamic Programming - Tabulation (Bottom-Up):</b></p>
+                        <pre>
 def fibonacci_tabulation(n):
     if n <= 1:
         return n
@@ -672,10 +793,10 @@ def fibonacci_tabulation(n):
     return dp[n]
 
 # Time complexity: O(n), Space complexity: O(n)
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e"><b>4. Space-Optimized Dynamic Programming:</b></font></p>
-                        <pre><font color="#8e44ad">
+                        <p><b>4. Space-Optimized Dynamic Programming:</b></p>
+                        <pre>
 def fibonacci_optimized(n):
     if n <= 1:
         return n
@@ -688,18 +809,18 @@ def fibonacci_optimized(n):
     return b
 
 # Time complexity: O(n), Space complexity: O(1)
-                        </font></pre>
+                        </pre>
                     </div>
                 </details>
 
                 <details>
-                    <summary><font color="#e74c3c" size="4">How do you solve the longest common subsequence problem?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>How do you solve the longest common subsequence problem?</summary>
+                    <div>
+                        <p>
                             The Longest Common Subsequence (LCS) problem is a classic dynamic programming problem. Here's how to implement it:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def longest_common_subsequence(text1, text2):
     m, n = len(text1), len(text2)
     
@@ -733,23 +854,23 @@ def longest_common_subsequence(text1, text2):
 text1 = "ABCDE"
 text2 = "ACE"
 print(longest_common_subsequence(text1, text2))  # Output: "ACE"
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e">
+                        <p>
                             Time Complexity: O(m * n) where m and n are the lengths of the two strings<br>
                             Space Complexity: O(m * n) for the DP table
-                        </font></p>
+                        </p>
                     </div>
                 </details>
 
                 <details>
-                    <summary><font color="#e74c3c" size="4">Explain how to solve the coin change problem using dynamic programming?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>Explain how to solve the coin change problem using dynamic programming?</summary>
+                    <div>
+                        <p>
                             The coin change problem asks for the minimum number of coins needed to make a given amount of money. It's a classic dynamic programming problem:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def coin_change(coins, amount):
     # Initialize dp array with amount + 1 (representing infinity)
     dp = [float('inf')] * (amount + 1)
@@ -769,13 +890,13 @@ def coin_change(coins, amount):
 coins = [1, 2, 5]
 amount = 11
 print(coin_change(coins, amount))  # Output: 3 (5 + 5 + 1)
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e">
+                        <p>
                             There's also a variation of the problem that asks for the number of ways to make the amount:
-                        </font></p>
+                        </p>
                         
-                        <pre><font color="#8e44ad">
+                        <pre>
 def coin_change_ways(coins, amount):
     # Initialize dp array with zeros
     dp = [0] * (amount + 1)
@@ -794,23 +915,23 @@ def coin_change_ways(coins, amount):
 coins = [1, 2, 5]
 amount = 5
 print(coin_change_ways(coins, amount))  # Output: 4 (5), (2+2+1), (2+1+1+1), (1+1+1+1+1)
-                        </font></pre>
+                        </pre>
                     </div>
                 </details>
             </section>
 
             <section>
-                <h2><font color="#2980b9">Sorting and Searching Questions</font></h2>
+                <h2>Sorting and Searching Questions</h2>
                 
                 <details>
-                    <summary><font color="#e74c3c" size="4">Implement binary search in Python</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
+                    <summary>Implement binary search in Python</summary>
+                    <div>
+                        <p>
                             Binary search is an efficient algorithm for finding an element in a sorted array. Here are both iterative and recursive implementations:
-                        </font></p>
+                        </p>
                         
-                        <p><font color="#34495e"><b>Iterative Implementation:</b></font></p>
-                        <pre><font color="#8e44ad">
+                        <p><b>Iterative Implementation:</b></p>
+                        <pre>
 def binary_search_iterative(arr, target):
     left, right = 0, len(arr) - 1
     
@@ -830,10 +951,10 @@ def binary_search_iterative(arr, target):
 sorted_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 print(binary_search_iterative(sorted_array, 7))  # Output: 6 (index of 7)
 print(binary_search_iterative(sorted_array, 11))  # Output: -1 (not found)
-                        </font></pre>
+                        </pre>
                         
-                        <p><font color="#34495e"><b>Recursive Implementation:</b></font></p>
-                        <pre><font color="#8e44ad">
+                        <p><b>Recursive Implementation:</b></p>
+                        <pre>
 def binary_search_recursive(arr, target, left=None, right=None):
     # Initialize left and right for the first call
     if left is None and right is None:
@@ -851,146 +972,257 @@ def binary_search_recursive(arr, target, left=None, right=None):
     # Target is in the right half
     elif arr[mid] < target:
         return binary_search_recursive(arr, target, mid + 1, right)
-    # Target is in the left half
-    else:
-        return binary_search_recursive(arr, target, left, mid - 1)
+        # Target is in the left half
+        else:
+            return binary_search_recursive(arr, target, left, mid - 1)
 
 # Example
-print(binary_search_recursive(sorted_array, 7))  # Output: 6
-print(binary_search_recursive(sorted_array, 11))  # Output: -1
-                        </font></pre>
-                        
-                        <p><font color="#34495e">
-                            Time Complexity: O(log n)<br>
-                            Space Complexity: O(1) for iterative, O(log n) for recursive due to call stack
-                        </font></p>
-                    </div>
-                </details>
+sorted_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(binary_search_recursive(sorted_array, 7))  # Output: 6 (index of 7)
+print(binary_search_recursive(sorted_array, 11))  # Output: -1 (not found)
+        </pre>
+        
+        <p>
+            Time Complexity: O(log n) - With each step, we eliminate half of the remaining elements.<br>
+            Space Complexity: O(1) for iterative, O(log n) for recursive due to call stack.
+        </p>
+    </div>
+</details>
 
-                <details>
-                    <summary><font color="#e74c3c" size="4">Explain how quicksort works and implement it in Python</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
-                            Quicksort is a divide-and-conquer algorithm that picks an element as a pivot and partitions the array around it. Here's an implementation:
-                        </font></p>
-                        
-                        <pre><font color="#8e44ad">
+<details>
+    <summary>Implement quicksort algorithm in Python</summary>
+    <div>
+        <p>
+            Quicksort is a divide-and-conquer sorting algorithm with average time complexity of O(n log n):
+        </p>
+        
+        <pre>
 def quicksort(arr):
-    if len(arr) <= 1:
-        return arr
-    
-    pivot = arr[len(arr) // 2]
-    left = [x for x in arr if x < pivot]
-    middle = [x for x in arr if x == pivot]
-    right = [x for x in arr if x > pivot]
-    
-    return quicksort(left) + middle + quicksort(right)
+if len(arr) <= 1:
+return arr
+
+pivot = arr[len(arr) // 2]
+left = [x for x in arr if x < pivot]
+middle = [x for x in arr if x == pivot]
+right = [x for x in arr if x > pivot]
+
+return quicksort(left) + middle + quicksort(right)
 
 # Example
 unsorted_array = [3, 6, 8, 10, 1, 2, 1]
 print(quicksort(unsorted_array))  # Output: [1, 1, 2, 3, 6, 8, 10]
-                        </font></pre>
-                        
-                        <p><font color="#34495e">
-                            Here's a more traditional in-place implementation:
-                        </font></p>
-                        
-                        <pre><font color="#8e44ad">
-def partition(arr, low, high):
-    pivot = arr[high]
-    i = low - 1
-    
-    for j in range(low, high):
-        if arr[j] <= pivot:
-            i += 1
-            arr[i], arr[j] = arr[j], arr[i]
-    
-    arr[i + 1], arr[high] = arr[high], arr[i + 1]
-    return i + 1
-
-def quicksort_inplace(arr, low=0, high=None):
-    if high is None:
-        high = len(arr) - 1
-    
-    if low < high:
-        # Partition the array
-        pivot_index = partition(arr, low, high)
+        </pre>
         
-        # Recursively sort the sub-arrays
-        quicksort_inplace(arr, low, pivot_index - 1)
-        quicksort_inplace(arr, pivot_index + 1, high)
-    
-    return arr
-                        </font></pre>
-                        
-                        <p><font color="#34495e">
-                            Time Complexity: Average O(n log n), Worst O(n²)<br>
-                            Space Complexity: O(log n) for recursive calls
-                        </font></p>
-                    </div>
-                </details>
+        <p>
+            A more memory-efficient in-place implementation:
+        </p>
+        
+        <pre>
+def quicksort_in_place(arr, low=0, high=None):
+if high is None:
+high = len(arr) - 1
 
-                <details>
-                    <summary><font color="#e74c3c" size="4">How would you implement merge sort in Python?</font></summary>
-                    <div bgcolor="#eaf2f8" style="padding: 10px;">
-                        <p><font color="#34495e">
-                            Merge sort is a divide-and-conquer algorithm that divides the array into two halves, sorts them separately, and then merges them:
-                        </font></p>
-                        
-                        <pre><font color="#8e44ad">
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    
-    # Divide the array into two halves
-    mid = len(arr) // 2
-    left_half = arr[:mid]
-    right_half = arr[mid:]
-    
-    # Recursively sort both halves
-    left_half = merge_sort(left_half)
-    right_half = merge_sort(right_half)
-    
-    # Merge the sorted halves
-    return merge(left_half, right_half)
+def partition(arr, low, high):
+pivot = arr[high]
+i = low - 1
+
+for j in range(low, high):
+if arr[j] <= pivot:
+i += 1
+arr[i], arr[j] = arr[j], arr[i]
+
+arr[i + 1], arr[high] = arr[high], arr[i + 1]
+return i + 1
+
+if low < high:
+pivot_index = partition(arr, low, high)
+quicksort_in_place(arr, low, pivot_index - 1)
+quicksort_in_place(arr, pivot_index + 1, high)
+
+return arr
+
+# Example
+unsorted_array = [3, 6, 8, 10, 1, 2, 1]
+print(quicksort_in_place(unsorted_array))  # Output: [1, 1, 2, 3, 6, 8, 10]
+        </pre>
+    </div>
+</details>
+
+<details>
+    <summary>Implement mergesort algorithm in Python</summary>
+    <div>
+        <p>
+            Mergesort is another efficient divide-and-conquer sorting algorithm with guaranteed O(n log n) time complexity:
+        </p>
+        
+        <pre>
+def mergesort(arr):
+if len(arr) <= 1:
+return arr
+
+# Divide the array into two halves
+mid = len(arr) // 2
+left_half = arr[:mid]
+right_half = arr[mid:]
+
+# Recursively sort both halves
+left_half = mergesort(left_half)
+right_half = mergesort(right_half)
+
+# Merge the sorted halves
+return merge(left_half, right_half)
 
 def merge(left, right):
-    result = []
-    i = j = 0
-    
-    # Merge the two arrays
-    while i < len(left) and j < len(right):
-        if left[i] <= right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    
-    # Add remaining elements
-    result.extend(left[i:])
-    result.extend(right[j:])
-    
-    return result
+result = []
+i = j = 0
+
+# Compare elements from both lists and add the smaller to result
+while i < len(left) and j < len(right):
+if left[i] <= right[j]:
+result.append(left[i])
+i += 1
+else:
+result.append(right[j])
+j += 1
+
+# Add remaining elements
+result.extend(left[i:])
+result.extend(right[j:])
+
+return result
 
 # Example
 unsorted_array = [38, 27, 43, 3, 9, 82, 10]
-print(merge_sort(unsorted_array))  # Output: [3, 9, 10, 27, 38, 43, 82]
-                        </font></pre>
-                        
-                        <p><font color="#34495e">
-                            Time Complexity: O(n log n) in all cases<br>
-                            Space Complexity: O(n) for the temporary arrays
-                        </font></p>
-                    </div>
-                </details>
-            </section>
-        </article>
-    </main>
+print(mergesort(unsorted_array))  # Output: [3, 9, 10, 27, 38, 43, 82]
+        </pre>
+    </div>
+</details>
+</section>
 
-    <footer>
-        <hr color="#3498db" size="3">
-        <p align="center"><font color="#7f8c8d">© 2025 Python DSA Interview Guide</font></p>
-    </footer>
+<section>
+<h2>Hashing Questions</h2>
+
+<details>
+    <summary>How would you design a hash map from scratch?</summary>
+    <div>
+        <p>
+            Designing a hash map involves handling key-value storage, hash function, collision resolution, and resizing. Here's a simple implementation:
+        </p>
+        
+        <pre>
+class MyHashMap:
+def __init__(self):
+self.size = 1000
+self.buckets = [[] for _ in range(self.size)]
+
+def _hash(self, key):
+return hash(key) % self.size
+
+def put(self, key, value):
+hash_key = self._hash(key)
+bucket = self.buckets[hash_key]
+
+for i, (k, v) in enumerate(bucket):
+if k == key:
+# Update existing key
+bucket[i] = (key, value)
+return
+
+# Key not found, add new key-value pair
+bucket.append((key, value))
+
+def get(self, key):
+hash_key = self._hash(key)
+bucket = self.buckets[hash_key]
+
+for k, v in bucket:
+if k == key:
+return v
+
+# Key not found
+return None
+
+def remove(self, key):
+hash_key = self._hash(key)
+bucket = self.buckets[hash_key]
+
+for i, (k, v) in enumerate(bucket):
+if k == key:
+# Remove the key-value pair
+del bucket[i]
+return
+
+# Key not found, do nothing
+
+# Example usage
+hashmap = MyHashMap()
+hashmap.put("apple", 5)
+hashmap.put("banana", 10)
+print(hashmap.get("apple"))   # Output: 5
+hashmap.remove("apple")
+print(hashmap.get("apple"))   # Output: None
+        </pre>
+        
+        <p>
+            This is a basic implementation. A production-grade hash map would include:
+        </p>
+        <ul>
+            <li>Dynamic resizing when load factor exceeds a threshold</li>
+            <li>More sophisticated collision handling (like using a balanced tree instead of a list for buckets)</li>
+            <li>Better hash functions</li>
+        </ul>
+    </div>
+</details>
+
+<details>
+    <summary>How would you find the first non-repeating character in a string?</summary>
+    <div>
+        <p>
+            We can use a hash map to count occurrences and then find the first character with a count of 1:
+        </p>
+        
+        <pre>
+def first_non_repeating_char(s):
+# Count character frequencies
+char_count = {}
+for char in s:
+char_count[char] = char_count.get(char, 0) + 1
+
+# Find the first character with a count of 1
+for i, char in enumerate(s):
+if char_count[char] == 1:
+return i
+
+return -1  # No non-repeating character found
+
+# Examples
+print(first_non_repeating_char("leetcode"))  # Output: 0 (character 'l')
+print(first_non_repeating_char("loveleetcode"))  # Output: 2 (character 'v')
+print(first_non_repeating_char("aabb"))  # Output: -1 (no non-repeating character)
+        </pre>
+        
+        <p>
+            Time Complexity: O(n) where n is the length of the string<br>
+            Space Complexity: O(k) where k is the size of the character set (usually constant)
+        </p>
+    </div>
+</details>
+</section>
+
+<section>
+<h2>Conclusion</h2>
+<p>
+    This guide covers some of the most commonly asked Python DSA interview questions. 
+    Remember that understanding the underlying concepts is more important than memorizing solutions. 
+    When preparing for interviews, practice implementing these algorithms and data structures from scratch, 
+    and analyze their time and space complexity.
+</p>
+</section>
+</article>
+</main>
+
+<footer>
+<p>© 2025 Python DSA Interview Guide | All code examples are free to use for interview preparation</p>
+</footer>
 </body>
 </html>
